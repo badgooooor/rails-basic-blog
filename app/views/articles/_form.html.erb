@@ -1,0 +1,22 @@
+<!--
+  Patch the instantiate code on form since there's a little error.
+  Should be : @article [UNETHICAL PATCH]
+-->
+<%= form_for(@article = Article.find(params[:id])) do |f| %>
+    <ul>
+      <% @article.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+    </ul>
+    <p>
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :body %><br />
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
